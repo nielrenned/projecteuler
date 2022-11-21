@@ -1,0 +1,44 @@
+import sys
+import importlib
+from os import listdir
+from os.path import isfile, join, dirname, realpath
+import re
+
+def solve(n=0):
+    if n == 0:
+        dir_path = dirname(realpath(__file__))
+        file_names = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
+        regex = re.compile('problem\d+.py$')
+        problem_numbers = sorted(
+                            map(lambda s: int(s[7:-3]), 
+                                filter(regex.match, file_names)))
+        total = 0
+        for i in problem_numbers:
+            total += solve(i)
+        print("--------------------------------------")
+        print("Total:       {}".format(total))
+        return
+    problem = importlib.import_module('problem{}'.format(n))
+    solution = problem.solve()
+    print ("Problem {:03}: {}".format(n, solution))
+    return solution
+
+def main():
+    argv = sys.argv
+    if len(argv) != 2:
+        print('Please give only a number to solve (or "all").')
+        return
+        
+    if argv[1] == 'all':
+        solve()
+        return
+     
+    try:
+        n = int(argv[1])
+    except Exception as e:
+        print('Unable to convert {} to int'.format(argv[1]))
+        return
+    solve(n)
+
+if __name__ == '__main__':
+    main()

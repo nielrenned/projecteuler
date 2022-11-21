@@ -1,0 +1,48 @@
+import sys
+import importlib
+from os import listdir
+from os.path import isfile, join, dirname, realpath
+import re
+from timeit import timeit
+
+def time(n=0):
+    if n == 0:
+        dir_path = dirname(realpath(__file__))
+        file_names = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
+        regex = re.compile('problem\d+.py$')
+        problem_numbers = sorted(
+                            map(lambda s: int(s[7:-3]), 
+                                filter(regex.match, file_names)))
+        total = 0
+        for i in problem_numbers:
+            total += time(i)
+        print("--------------------------------------")
+        print("Total:       {}s".format(round(total, 4)))
+        print("Average:     {}s/problem".format(round(total/len(problem_numbers), 4)))
+        return
+    setup_code = "import importlib\nproblem = importlib.import_module('problem{}')".format(n)
+    run_code = "problem.solve()"
+    length = timeit(run_code, setup_code, number=1)
+    print("Problem {:03}: {}s".format(n, round(length, 4)))
+    return length
+      
+
+def main():
+    argv = sys.argv
+    if len(argv) != 2:
+        print('Please give only a number to time (or "all").')
+        return
+    
+    if argv[1] == 'all':
+        time()
+        return
+     
+    try:
+        n = int(argv[1])
+    except Exception as e:
+        print('Unable to convert {} to int'.format(argv[1]))
+        return
+    time(n)
+
+if __name__ == '__main__':
+    main()
