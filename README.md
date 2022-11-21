@@ -1,5 +1,7 @@
 # Project Euler Solutions
 
+![profile](https://projecteuler.net/profile/nielrenned.png)
+
 These are my solutions to some of the problems of [Project Euler](https://www.projecteuler.net).
 
 Most problems have been solved in python, but some of the longer running ones have been solved in C.
