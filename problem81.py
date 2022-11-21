@@ -5,7 +5,7 @@ test_matrix = [[131, 673, 234, 103,  18],
                [805, 732, 524,  37, 331]]
 
 def solve():
-    with open('p081_matrix.txt') as f:
+    with open('inputs/p081_matrix.txt') as f:
         rows = f.read().split('\n')[:-1]
     M = [list(map(int, row.split(','))) for row in rows]
     N = len(M)

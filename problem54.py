@@ -121,7 +121,7 @@ def check_winner(hand1, hand2):
     return 2
 
 def solve():
-    with open('p054_poker.txt') as f:
+    with open('inputs/p054_poker.txt') as f:
         lines = f.read().split('\n')
     split_lines = map(lambda s: s.split(' '), lines)
     hands = []

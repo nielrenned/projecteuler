@@ -7,7 +7,7 @@ test_matrix = [[131, 673, 234, 103,  18],
 from utilities import DirectedGraph, dijkstra
             
 def solve():
-    with open('p082_matrix.txt') as f:
+    with open('inputs/p082_matrix.txt') as f:
         rows = f.read().split('\n')[:-1]
     M = [list(map(int, row.split(','))) for row in rows]
     #M = test_matrix

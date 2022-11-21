@@ -1,5 +1,5 @@
 given = ''
-with open('p067_triangle.txt') as f:
+with open('inputs/p067_triangle.txt') as f:
     given = f.read()
 
 triangle = [list(map(int, line.split(' '))) for line in given.split('\n')]

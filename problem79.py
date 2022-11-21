@@ -1,7 +1,7 @@
 from itertools import permutations
 
 def solve():
-    with open('p079_keylog.txt') as f:
+    with open('inputs/p079_keylog.txt') as f:
         lines = sorted(set(f.read().split('\n')[:-1]))
     digits = set()
     for line in lines:

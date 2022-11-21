@@ -22,9 +22,9 @@ def count_words(text, words):
     return count
 
 def solve():
-    with open('p059_cipher.txt') as f:
+    with open('inputs/p059_cipher.txt') as f:
         data = list(map(int, f.read().split(',')))
-    with open('p059_common_words.txt') as f:
+    with open('inputs/p059_common_words.txt') as f:
         words = f.read().split('\n')
     words = words[:25]
     highest, best_key = 0,''

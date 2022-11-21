@@ -80,7 +80,7 @@ def write_roman_numeral(n):
 def solve():
     #print(parse_roman_numeral('CCXCVIII'))
     #return
-    with open('p089_roman.txt') as f:
+    with open('inputs/p089_roman.txt') as f:
         lines = f.read().split('\n')
     total = 0
     for line in lines:

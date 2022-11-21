@@ -1,7 +1,7 @@
 
 def solve():
     names = ''
-    with open('p022_names.txt') as f:
+    with open('inputs/p022_names.txt') as f:
         names = list(map(lambda x: x[1:-1], f.read().split(',')))
     names = sorted(names)
     total = 0

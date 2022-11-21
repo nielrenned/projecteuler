@@ -1,6 +1,6 @@
 def solve():
     words = None
-    with open('p042_words.txt') as f:
+    with open('inputs/p042_words.txt') as f:
         words = list(map(lambda x: x[1:-1], f.read().split(',')))
     triangle_nums = set()
     n = 1
